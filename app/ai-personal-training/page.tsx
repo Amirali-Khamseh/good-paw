@@ -116,6 +116,17 @@ export default function AiPersonalTrainingPage() {
     return `${videoFile.name} (${formatFileSize(videoFile.size)})`;
   }, [videoFile]);
 
+  const planParagraphs = useMemo(() => {
+    if (!plan) {
+      return [];
+    }
+
+    return plan
+      .split(/\n{2,}/)
+      .map((section) => section.trim())
+      .filter(Boolean);
+  }, [plan]);
+
   async function handleAnalyze(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
@@ -301,11 +312,17 @@ export default function AiPersonalTrainingPage() {
             ) : null}
 
             {!isSubmitting && plan ? (
-              <div className="mt-4 rounded-xl bg-[#FFFBF1] p-4">
-                <pre className="whitespace-pre-wrap text-sm leading-relaxed text-[#4E3E3E]">
-                  {plan}
-                </pre>
-              </div>
+              <article className="prose prose-sm mt-4 max-w-none rounded-xl bg-[#FFFBF1] p-4 prose-headings:text-[#5A3333] prose-p:text-[#4E3E3E] prose-strong:text-[#5A3333] prose-li:text-[#4E3E3E] prose-ul:my-3 prose-ol:my-3 sm:prose-base">
+                {planParagraphs.length > 0 ? (
+                  planParagraphs.map((paragraph, index) => (
+                    <p key={index} className="whitespace-pre-line">
+                      {paragraph}
+                    </p>
+                  ))
+                ) : (
+                  <p className="whitespace-pre-line">{plan}</p>
+                )}
+              </article>
             ) : null}
 
             {!isSubmitting && !plan && error ? (

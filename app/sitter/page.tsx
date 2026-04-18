@@ -153,7 +153,11 @@ const sitterSeedData: Omit<Sitter, "id" | "imageSrc" | "featured">[] = [
     shortInfo: "Gentle first-time sitter for shy rescue dogs.",
     about:
       "Works with cautious dogs who need predictable pacing, low-pressure handling, and trust-building before longer sessions.",
-    specialties: ["Rescue introductions", "Stress-aware handling", "Routine setup"],
+    specialties: [
+      "Rescue introductions",
+      "Stress-aware handling",
+      "Routine setup",
+    ],
     availability: "Available today: 11:00 - 17:00",
     coordinates: [52.531, 13.341],
   },
@@ -273,7 +277,11 @@ const sitterSeedData: Omit<Sitter, "id" | "imageSrc" | "featured">[] = [
     shortInfo: "Fear-free handling with confidence progression plans.",
     about:
       "Builds confidence plans for sound-sensitive and timid dogs using gradual exposure and reinforcement pacing.",
-    specialties: ["Fear-free handling", "Confidence plans", "Sensitivity support"],
+    specialties: [
+      "Fear-free handling",
+      "Confidence plans",
+      "Sensitivity support",
+    ],
     availability: "Available today: 12:00 - 18:00",
     coordinates: [52.4552, 13.3226],
   },
@@ -288,7 +296,11 @@ const sitterSeedData: Omit<Sitter, "id" | "imageSrc" | "featured">[] = [
     shortInfo: "Puppy potty schedule and crate transition support.",
     about:
       "Helps new owners establish realistic puppy rhythms with targeted potty timing and calm crate transitions.",
-    specialties: ["Puppy potty plans", "Crate transitions", "New owner support"],
+    specialties: [
+      "Puppy potty plans",
+      "Crate transitions",
+      "New owner support",
+    ],
     availability: "Next slot: Tomorrow 07:30",
     coordinates: [52.5884, 13.3286],
   },
@@ -318,7 +330,11 @@ const sitterSeedData: Omit<Sitter, "id" | "imageSrc" | "featured">[] = [
     shortInfo: "Reliable group walk leader with controlled pair matching.",
     about:
       "Pairs dogs by temperament and pace, keeping social sessions structured and low-stress.",
-    specialties: ["Group walks", "Temperament matching", "Structured social time"],
+    specialties: [
+      "Group walks",
+      "Temperament matching",
+      "Structured social time",
+    ],
     availability: "Available today: 10:30 - 17:00",
     coordinates: [52.553, 13.4621],
   },
@@ -363,7 +379,11 @@ const sitterSeedData: Omit<Sitter, "id" | "imageSrc" | "featured">[] = [
     shortInfo: "Behavior-aware sitter with structured handoff notes.",
     about:
       "Delivers concise behavior observations and next-step recommendations for owners working on consistent home rules.",
-    specialties: ["Behavior observations", "Handoff notes", "Consistency coaching"],
+    specialties: [
+      "Behavior observations",
+      "Handoff notes",
+      "Consistency coaching",
+    ],
     availability: "Available today: 09:00 - 15:00",
     coordinates: [52.4944, 13.4692],
   },
@@ -414,10 +434,32 @@ const sitterSeedData: Omit<Sitter, "id" | "imageSrc" | "featured">[] = [
   },
 ];
 
+const womenFirstNames = new Set([
+  "Anna",
+  "Sophie",
+  "Mia",
+  "Clara",
+  "Emma",
+  "Laura",
+  "Nina",
+  "Leonie",
+  "Julia",
+  "Hannah",
+  "Franziska",
+  "Paula",
+]);
+
+function getSitterImageByName(name: string): string {
+  const firstName = name.split(" ")[0] ?? "";
+  return womenFirstNames.has(firstName)
+    ? "/sitters/sitter-woman.svg"
+    : "/sitters/sitter-man.svg";
+}
+
 const sitters: Sitter[] = sitterSeedData.map((sitter, index) => ({
   ...sitter,
   id: `sitter-${index + 1}`,
-  imageSrc: `https://i.pravatar.cc/640?img=${index + 11}`,
+  imageSrc: getSitterImageByName(sitter.name),
   featured: sitter.rating >= 4.9,
 }));
 
@@ -574,7 +616,9 @@ export default function SitterPage() {
                           {sitter.featured ? (
                             <Badge variant="secondary">Featured</Badge>
                           ) : null}
-                          <Badge variant="outline">${sitter.hourlyRate}/hr</Badge>
+                          <Badge variant="outline">
+                            ${sitter.hourlyRate}/hr
+                          </Badge>
                         </CardAction>
 
                         <CardTitle>{sitter.name}</CardTitle>

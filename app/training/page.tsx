@@ -346,9 +346,9 @@ export default function TrainingPage() {
       [categoryKey]: true,
     }));
 
-    const existingMessages =
-      chatMessagesByCategory[categoryKey] ||
-      [buildCategoryWelcomeMessage(categoryKey)];
+    const existingMessages = chatMessagesByCategory[categoryKey] || [
+      buildCategoryWelcomeMessage(categoryKey),
+    ];
     const selectedStep = focusedStepByCategory[categoryKey] || null;
     const history = existingMessages.slice(-MAX_CHAT_HISTORY_MESSAGES);
 
@@ -579,8 +579,12 @@ export default function TrainingPage() {
 
                       {focusedStepByCategory[category.title] ? (
                         <div className="mt-2 rounded-lg bg-[#FFF2D0] p-2 text-xs text-[#5F4A4A]">
-                          <p className="font-semibold text-[#5A3333]">Focused step</p>
-                          <p className="mt-1">{focusedStepByCategory[category.title]?.step}</p>
+                          <p className="font-semibold text-[#5A3333]">
+                            Focused step
+                          </p>
+                          <p className="mt-1">
+                            {focusedStepByCategory[category.title]?.step}
+                          </p>
                           <button
                             type="button"
                             onClick={() => clearFocusedStep(category.title)}
@@ -592,9 +596,11 @@ export default function TrainingPage() {
                       ) : null}
 
                       <div className="mt-3 max-h-64 space-y-2 overflow-y-auto pr-1">
-                        {(chatMessagesByCategory[category.title] || [
-                          buildCategoryWelcomeMessage(category.title),
-                        ]).map((message, messageIndex) => (
+                        {(
+                          chatMessagesByCategory[category.title] || [
+                            buildCategoryWelcomeMessage(category.title),
+                          ]
+                        ).map((message, messageIndex) => (
                           <div
                             key={`${category.title}-chat-${messageIndex}`}
                             className={`rounded-lg px-3 py-2 text-xs leading-relaxed ${
@@ -641,7 +647,9 @@ export default function TrainingPage() {
 
                         <button
                           type="submit"
-                          disabled={Boolean(chatLoadingByCategory[category.title])}
+                          disabled={Boolean(
+                            chatLoadingByCategory[category.title],
+                          )}
                           className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#E36A6A] px-4 py-2 text-xs font-semibold text-[#FFFBF1] transition-colors hover:bg-[#cc5959] disabled:cursor-not-allowed disabled:opacity-70"
                         >
                           {chatLoadingByCategory[category.title] ? (

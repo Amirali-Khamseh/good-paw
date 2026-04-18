@@ -139,11 +139,15 @@ function sanitizeHistory(rawHistory: unknown): Array<{
         content,
       };
     })
-    .filter((item): item is { role: ChatRole; content: string } => Boolean(item))
+    .filter((item): item is { role: ChatRole; content: string } =>
+      Boolean(item),
+    )
     .slice(-MAX_HISTORY_MESSAGES);
 }
 
-function sanitizeStepFocus(rawStep: unknown): { pattern: string; step: string } | null {
+function sanitizeStepFocus(
+  rawStep: unknown,
+): { pattern: string; step: string } | null {
   if (!rawStep || typeof rawStep !== "object") {
     return null;
   }
@@ -229,13 +233,18 @@ function summarizeMisbehaviors(misbehaviors: MisbehaviorInput[]): string {
     .join("\n");
 }
 
-function formatHistory(history: Array<{ role: ChatRole; content: string }>): string {
+function formatHistory(
+  history: Array<{ role: ChatRole; content: string }>,
+): string {
   if (history.length === 0) {
     return "";
   }
 
   return history
-    .map((entry) => `${entry.role === "user" ? "Owner" : "Assistant"}: ${entry.content}`)
+    .map(
+      (entry) =>
+        `${entry.role === "user" ? "Owner" : "Assistant"}: ${entry.content}`,
+    )
     .join("\n");
 }
 
@@ -365,10 +374,7 @@ export async function POST(request: Request) {
   try {
     payload = (await request.json()) as ChatRequestPayload;
   } catch {
-    return NextResponse.json(
-      { error: "Invalid JSON body." },
-      { status: 400 },
-    );
+    return NextResponse.json({ error: "Invalid JSON body." }, { status: 400 });
   }
 
   const question = safeText(payload.question, MAX_QUESTION_CHARS);
@@ -380,7 +386,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const categoryTitle = compactText(payload.categoryTitle, 120) || "Dog training";
+  const categoryTitle =
+    compactText(payload.categoryTitle, 120) || "Dog training";
   const categorySubtitle = safeText(payload.categorySubtitle, 180);
   const history = sanitizeHistory(payload.history);
   const selectedStep = sanitizeStepFocus(payload.selectedStep);
