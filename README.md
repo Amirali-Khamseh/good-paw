@@ -1,3 +1,5 @@
+# Project presented as a final work for AI & Google Cloud Hackathon Extravaganza 4/18/2026
+
 # Good Paw
 
 Good Paw is a pet care web app built with Next.js that brings training, AI coaching, sitter discovery, and shopping into one friendly dashboard.
