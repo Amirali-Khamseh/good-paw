@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Female Dog Sitter Character</title>
+  <desc id="desc">Custom illustration of a female dog sitter with a playful dog and leash.</desc>
+  <defs>
+    <linearGradient id="bgWarmWoman" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFEDE8" />
+      <stop offset="100%" stop-color="#FFC5B5" />
+    </linearGradient>
+    <linearGradient id="dressWoman" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E96A72" />
+      <stop offset="100%" stop-color="#C74C5B" />
+    </linearGradient>
+    <linearGradient id="dogBodyWoman" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF8E8" />
+      <stop offset="100%" stop-color="#F4E7C5" />
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#bgWarmWoman)" />
+  <circle cx="560" cy="58" r="86" fill="#FFFFFF" opacity="0.42" />
+  <circle cx="122" cy="88" r="94" fill="#FFFFFF" opacity="0.28" />
+  <path d="M0 286C106 256 206 300 314 274C430 246 510 218 640 258V360H0Z" fill="#F2D99A" />
+
+  <g fill="#DB6677" opacity="0.32">
+    <circle cx="86" cy="136" r="7" />
+    <circle cx="72" cy="150" r="4.5" />
+    <circle cx="86" cy="154" r="4.5" />
+    <circle cx="100" cy="150" r="4.5" />
+    <circle cx="114" cy="136" r="7" />
+    <circle cx="536" cy="128" r="7" />
+    <circle cx="522" cy="142" r="4.5" />
+    <circle cx="536" cy="146" r="4.5" />
+    <circle cx="550" cy="142" r="4.5" />
+    <circle cx="564" cy="128" r="7" />
+  </g>
+
+  <g transform="translate(184 54)">
+    <ellipse cx="118" cy="238" rx="96" ry="22" fill="#99566B" opacity="0.23" />
+    <path d="M72 132C80 100 98 80 128 80C158 80 176 100 184 132L198 246H58Z" fill="url(#dressWoman)" />
+    <path d="M93 244H163L156 298H100Z" fill="#7C3141" />
+    <rect x="94" y="296" width="25" height="8" rx="4" fill="#5E2430" />
+    <rect x="137" y="296" width="25" height="8" rx="4" fill="#5E2430" />
+
+    <rect x="76" y="134" width="18" height="86" rx="9" fill="#F3CDAE" />
+    <rect x="166" y="134" width="18" height="86" rx="9" fill="#F3CDAE" />
+
+    <circle cx="130" cy="64" r="44" fill="#F9DECA" />
+    <path d="M88 64C88 34 108 14 130 14C151 14 173 34 173 64V74C160 56 142 46 130 46C118 46 100 56 88 74Z" fill="#6E3846" />
+    <circle cx="114" cy="67" r="3.8" fill="#402722" />
+    <circle cx="146" cy="67" r="3.8" fill="#402722" />
+    <path d="M119 86C125 92 135 92 141 86" fill="none" stroke="#402722" stroke-width="3.8" stroke-linecap="round" />
+    <path d="M108 104C123 114 137 114 152 104" fill="none" stroke="#EAB995" stroke-width="4" stroke-linecap="round" />
+
+    <path d="M176 164C212 150 244 156 270 176" fill="none" stroke="#A34D63" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <g transform="translate(420 206)">
+    <ellipse cx="74" cy="90" rx="66" ry="20" fill="#BCA46A" opacity="0.28" />
+    <ellipse cx="70" cy="62" rx="54" ry="30" fill="url(#dogBodyWoman)" />
+    <circle cx="38" cy="52" r="22" fill="url(#dogBodyWoman)" />
+    <path d="M25 43L33 29L41 43Z" fill="#E6D6B4" />
+    <path d="M36 43L44 29L52 43Z" fill="#E6D6B4" />
+    <circle cx="31" cy="54" r="2.8" fill="#4B392E" />
+    <circle cx="43" cy="54" r="2.8" fill="#4B392E" />
+    <ellipse cx="37" cy="62" rx="4.8" ry="3.4" fill="#4B392E" />
+    <path d="M33 69C35 72 39 72 41 69" fill="none" stroke="#4B392E" stroke-width="2.2" stroke-linecap="round" />
+    <rect x="85" y="46" width="16" height="49" rx="8" fill="#EFDFBF" />
+    <rect x="106" y="48" width="16" height="47" rx="8" fill="#EFDFBF" />
+    <path d="M118 53C136 48 149 38 156 24" fill="none" stroke="#EFDFBF" stroke-width="8" stroke-linecap="round" />
+    <circle cx="38" cy="39" r="2" fill="#A34D63" />
+    <circle cx="41" cy="39" r="2" fill="#A34D63" />
+  </g>
+</svg>
